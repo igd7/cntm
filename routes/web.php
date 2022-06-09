@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('{link}', [\App\Http\Controllers\LinkController::class, 'index'])->name('link');
+Route::post('form', [\App\Http\Controllers\FormController::class, 'store'])->name('form');
