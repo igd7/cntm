@@ -6,17 +6,17 @@ use Illuminate\Support\Str;
 
 class LinkService
 {
-    private $length = 8;
+    private static $length = 8;
 
-    public function getRandomString(int $length = null): string
+    public static function getRandomString(int $length = null): string
     {
-        $length = $length ?? $this->length;
+        $length = $length ?? self::$length;
 
         return Str::random($length);
     }
 
-    public function getStringLength()
+    public static function getStringLength(): int
     {
-        return $this->length;
+        return self::$length;
     }
 }

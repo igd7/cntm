@@ -32,7 +32,7 @@ class Link extends Model
 
         static::creating(function ($link) {
             $link->expired_at = Carbon::now()->addHours(request()->hours_max );
-            $link->link_short = (new LinkService())->getRandomString();
+            $link->link_short = LinkService::getRandomString();
         });
     }
 

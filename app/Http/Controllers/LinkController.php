@@ -16,7 +16,7 @@ class LinkController extends Controller
      */
     public function index($link): RedirectResponse
     {
-        abort_if((new LinkService())->getStringLength() != strlen($link), 404);
+        abort_if(LinkService::getStringLength() != strlen($link), 404);
 
         $model = Link::query()
             ->linkShort($link)
